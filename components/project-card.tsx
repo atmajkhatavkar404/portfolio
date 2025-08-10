@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "framer-motion"
 import { ExternalLink, ShieldCheck } from "lucide-react"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
@@ -16,18 +15,12 @@ export type Project = {
 
 export default function ProjectCard({ project, index = 0 }: { project: Project; index?: number }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20, scale: 0.98 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: 0.05 * index }}
-      className="h-full"
-    >
+    <div className="h-full">
       <Card className="group h-full bg-[#0b0b0b] border-white/10 hover:border-blue-500/40 transition-colors">
         <CardHeader className="p-0">
           <div className="relative w-full aspect-[16/10] overflow-hidden rounded-t-xl">
             <Image
-              src={project.image || "/placeholder.svg"}
+              src={project.image || "/placeholder.svg?height=400&width=640&query=project%20preview"}
               alt={`${project.title} preview`}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
@@ -70,6 +63,6 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
           )}
         </CardFooter>
       </Card>
-    </motion.div>
+    </div>
   )
 }
