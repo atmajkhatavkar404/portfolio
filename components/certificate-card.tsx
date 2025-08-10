@@ -16,20 +16,18 @@ export type Certificate = {
 
 export default function CertificateCard({ cert, index = 0 }: { cert: Certificate; index?: number }) {
   return (
-    <div
-      className="h-full animate-[fadeIn_0.5s_ease_1] [animation-delay:var(--d)]"
-      style={{ ["--d" as any]: `${index * 50}ms` }}
-    >
+    <div className="h-full">
       <Card className="group h-full bg-[#0b0b0b] border-white/10 hover:border-blue-500/40 transition-colors">
         <CardHeader className="p-0">
           <div className="relative w-full aspect-[16/10] overflow-hidden rounded-t-xl">
             <Image
-              src={cert.image || "/placeholder.svg"}
+              src={cert.image || "/placeholder.svg?height=400&width=640&query=certificate"}
               alt={`${cert.title} certificate preview`}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               unoptimized={cert.image.startsWith("https://blob.v0.dev")}
+              priority={index < 2}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           </div>
