@@ -1,17 +1,14 @@
 "use client"
 
 import Image from "next/image"
-import { motion, useReducedMotion } from "framer-motion"
 
 export default function HeroRotatingShield({
-  title = "Cybersecurity Enthusiast",
+  title = "Cybersecurity Specialist",
   subtitle = "Ethical Hacking • Penetration Testing • Web Security",
 }: {
   title?: string
   subtitle?: string
 }) {
-  const reduce = useReducedMotion()
-
   return (
     <div className="relative w-full h-[70vh] md:h-[80vh] overflow-hidden">
       {/* Background aura for depth */}
@@ -19,14 +16,12 @@ export default function HeroRotatingShield({
 
       {/* Rotating shield image (uses provided Source URL directly) */}
       <div className="absolute inset-0 grid place-items-center px-6">
-        <motion.div
+        <div
           aria-hidden
-          className="relative"
-          animate={reduce ? undefined : { rotate: 360 }}
-          transition={reduce ? undefined : { repeat: Number.POSITIVE_INFINITY, ease: "linear", duration: 18 }}
+          className="relative animate-[spin_18s_linear_infinite] motion-reduce:animate-none will-change-transform"
         >
           <Image
-            src="a.png"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/a-lnmSADZr3gI5tbcaIslHQG0a5y561R.png"
             alt="Rotating cyber shield visual"
             width={900}
             height={900}
@@ -35,12 +30,12 @@ export default function HeroRotatingShield({
             className="w-[70vw] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-2xl h-auto drop-shadow-[0_0_40px_rgba(59,130,246,0.35)]"
             sizes="(min-width:1280px) 40vw, (min-width:1024px) 50vw, (min-width:640px) 60vw, 70vw"
           />
-        </motion.div>
+        </div>
       </div>
 
       {/* Titles */}
       <div className="absolute inset-0 grid place-items-end">
-        <div className="pointer-events-auto text-center w-full px-6 pb-10 md:pb-14">
+        <div className="text-center w-full px-6 pb-10 md:pb-14">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500">
               {title}
