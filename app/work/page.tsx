@@ -7,6 +7,9 @@ import CertificateCard from "@/components/certificate-card"
 import { PROJECTS, CERTIFICATES } from "@/lib/data"
 import Script from "next/script"
 
+export const dynamic = "force-static"
+export const revalidate = 86400
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: `Work – ${SEO.defaultTitle}`,
@@ -40,7 +43,7 @@ export default function WorkPage() {
           <p className="text-blue-300 text-sm tracking-widest uppercase">My Work</p>
           <h1 className="mt-2 text-3xl md:text-5xl font-bold text-white">Selected Projects</h1>
           <p className="mt-4 text-neutral-300 max-w-3xl">
-            Recognized cybersecurity specialist with expertise in secure web applications and security tooling, delivering innovative and high-impact cybersecurity solutions.
+            A mix of open and private work covering recon automation, secure web apps, dashboards, and security tooling.
           </p>
 
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -52,9 +55,9 @@ export default function WorkPage() {
 
         <Section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-2 pb-12 md:pb-16">
           <p className="text-blue-300 text-sm tracking-widest uppercase">Certificates</p>
-          <h2 className="mt-2 text-2xl md:text-4xl font-bold text-white">Professional Certifications & Achievements</h2>
+          <h2 className="mt-2 text-2xl md:text-4xl font-bold text-white">Professional Certifications</h2>
           <p className="mt-3 text-neutral-300 max-w-3xl">
-            Certified in ethical hacking, penetration testing, and cybersecurity fundamentals, with credentials from industry-recognized organizations and global security programs.
+            A selection of certifications related to cybersecurity, ethical hacking, and secure development.
           </p>
 
           <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
